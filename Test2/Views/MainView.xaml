@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+			 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+			 xmlns:controls="clr-namespace:XLabs.Forms.Controls;assembly=XLabs.Forms"
+			 x:Class="Test2.MainView">
+
+	<ContentPage.Resources>
+	    <ResourceDictionary>
+	      <OnPlatform x:Key="listSelectFontSize" x:TypeArguments="x:Double">
+	        <OnPlatform.iOS>14</OnPlatform.iOS>
+	        <OnPlatform.Android>24</OnPlatform.Android>
+	        <OnPlatform.WinPhone>32</OnPlatform.WinPhone>
+	      </OnPlatform>
+	      <OnPlatform x:Key="listFontSize" x:TypeArguments="x:Double">
+	        <OnPlatform.iOS>14</OnPlatform.iOS>
+	        <OnPlatform.Android>24</OnPlatform.Android>
+	        <OnPlatform.WinPhone>26</OnPlatform.WinPhone>
+	      </OnPlatform>
+	      <OnPlatform x:Key="checkBoxFontSize" x:TypeArguments="x:Double">
+	        <OnPlatform.iOS>14</OnPlatform.iOS>
+	        <OnPlatform.Android>18</OnPlatform.Android>
+	        <OnPlatform.WinPhone>20</OnPlatform.WinPhone>
+	      </OnPlatform>
+		  <OnPlatform x:Key="textColor" x:TypeArguments="Color">
+	        <OnPlatform.iOS>Black</OnPlatform.iOS>
+	        <OnPlatform.Android>White</OnPlatform.Android>
+	        <OnPlatform.WinPhone>White</OnPlatform.WinPhone>
+	      </OnPlatform>
+	    </ResourceDictionary>
+	</ContentPage.Resources>
+
+	<ContentPage.Content>
+		<Grid>
+			<Grid.RowDefinitions>
+	          <RowDefinition Height="Auto" />
+	          <RowDefinition Height="Auto" />
+	          <RowDefinition Height="Auto" />
+	          <RowDefinition Height="Auto" />
+	        </Grid.RowDefinitions>
+
+	        <Grid.ColumnDefinitions>
+	          <ColumnDefinition Width="*" />
+	        </Grid.ColumnDefinitions>
+
+	        <Label Grid.Row="0" Text="Checkbox Test" />
+			      <controls:CheckBox Grid.Row="1" DefaultText="Life List"
+                               Checked="{Binding LifeList, Mode=TwoWay}"
+                               TextColor="{StaticResource textColor}"
+                               FontSize="{StaticResource checkBoxFontSize}" />
+            <controls:CheckBox Grid.Row="2" DefaultText="State"
+                               Checked="{Binding SeenInThisState, Mode=TwoWay}"
+                               TextColor="{StaticResource textColor}"
+                               FontSize="{StaticResource checkBoxFontSize}" />
+            <controls:CheckBox Grid.Row="3" DefaultText="This List"
+                               Checked="{Binding SeenInThisList, Mode=TwoWay}"
+                               TextColor="{StaticResource textColor}"
+                               FontSize="{StaticResource checkBoxFontSize}" />
+
+		</Grid>
+	</ContentPage.Content>
+</ContentPage>
